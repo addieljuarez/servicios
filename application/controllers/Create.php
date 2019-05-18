@@ -7,11 +7,21 @@ class Create extends CI_Controller{
         $password="123456";
         $name="Jesus Santiago";
         $phone="8115899028";
-        $address="Captain Lucas G 816, al lado de bodeguita";
+        $address="Captain Lucas G 816, al lado de_bodeguita";
         $matricula="10457";
         $databusqueda = array ("email" => $username);
         $busquedacorreo = $this -> db-> get_where ("alumnos",$databusqueda);
+        //echo json_encode ($busquedacorreo);
         
+        if ($busquedacorreo == TRUE){
+            echo "si";
+            $conteofilas = $busquedacorreo -> num_rows();
+            echo $conteofilas;
+        }
+        else{
+            echo "NO";
+        }
+
 
         //$this->load->database();
         $data = array('email' =>$username,
