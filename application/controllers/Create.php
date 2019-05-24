@@ -3,7 +3,7 @@ class Create extends CI_Controller{
     public function index(){
         $this->load->view('Create_view');
 
-        $username= "jesus95santiago@gmail.com";
+        $username= "95santiag@gmail.com";
         $password="123456";
         $name="Jesus Santiago";
         $phone="8115899028";
@@ -17,21 +17,27 @@ class Create extends CI_Controller{
             echo "si";
             $conteofilas = $busquedacorreo -> num_rows();
             echo $conteofilas;
+            if($conteofilas > 0){
+                echo "Este registro ya existe";
+            }else{
+                //$this->load->database();
+                $data = array('email' =>$username,
+                'password'=>$password,
+                'name'=>$name,
+                'phone'=>$phone,
+                'address'=>$address,
+                'matricula'=>$matricula);
+                //echo json_encode($data);
+                $this->db->insert('alumnos',$data);
+                echo "Registro insertado correctamente";
+            }
         }
         else{
             echo "NO";
         }
 
 
-        //$this->load->database();
-        $data = array('email' =>$username,
-        'password'=>$password,
-        'name'=>$name,
-        'phone'=>$phone,
-        'address'=>$address,
-        'matricula'=>$matricula);
-        //echo json_encode($data);
-        $this->db->insert('alumnos',$data);
+        
         
     }
 }
