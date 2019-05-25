@@ -40,4 +40,9 @@ class Create extends CI_Controller{
         
         
     }
+
+    public function registroVista (){
+        echo "Pagina del registro";
+
+    }
 }
