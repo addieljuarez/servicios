@@ -43,6 +43,8 @@ class Create extends CI_Controller{
 
     public function registroVista (){
         echo "Pagina del registro";
+        $email_vista= $this ->input->post("correo");
+        echo $email_vista;
 
     }
 }
