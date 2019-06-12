@@ -20,7 +20,10 @@ class Usuarios extends CI_Model{
     }
 
     public function todosUsuarios(){
-
+        $query = $this->db->get('alumnos');
+        $arrayQuery = $query->result_array();
+        
+        return $arrayQuery;
     }
 
 }
